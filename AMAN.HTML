@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            border: 2px solid black;
+            width: 500px;
+            height: 700px;
+            margin: auto;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(255, 0, 64);
+            text-decoration: underline;
+            text-decoration-color:rgb(123, 24, 85) ;
+        }
+
+        label {
+            float: left;
+            font-size: 20px;
+            font-weight: bold;
+            color: rgb(98, 20, 20);
+            padding: 10px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 300px;
+            height: 30px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        input[type="submit"] {
+            width: 90px;
+            height: 30px;
+            background-color: rgb(203, 160, 238);
+            color: rgb(49, 27, 86);
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border-color: white;
+            margin-left: 300px;
+        }
+        input[type="submit"]:hover {
+            background-color: rgb(76, 127, 166);
+            color: black;
+            font-size: 10px;
+        }
+        </style>
+</head>
+
+<body>
+    <div>
+        <form>
+            <h1>CONTACT US </h1>
+            <label>SUBJECT :</label>
+            <select>
+                <option value="Return">Return</option>
+                <option value="Order">Order</option>
+                <option value="Help">Help</option>
+                <option value="Address issue">Address issue</option>
+            </select>
+            <br><br>
+            <label>NAME:</label>
+            <INPUT type="text" placeholder="Enter Your Name">
+            <BR><br>
+            <label>Company Name :</label>
+            <INPUT type="text" placeholder="Enter Company Name">
+            <BR><br>
+            <label>Phone: </label>
+            <INPUT type="text" placeholder="xxxxxxxxxxxxxxx">
+            <br><br>
+            <label>Email Address:</label>
+            <INPUT type="text" placeholder="Enter Company Name">
+            <BR><br>
+            <label>Order Refrence</label>
+            <select>
+                <option value="Return">Return</option>
+                <option value="Order">Order</option>
+                <option value="Help">Help</option>
+                <option value="Address issue">Address issue</option>
+            </select>
+            <br><br>
+            <label>Attachment:</label>
+            <INPUT type="text" placeholder="Enter Company Name">
+            <BR><br>
+            <label for="203">Massage</label>
+            <textarea NAME="MASSAGE" placeholder="ENTER YOUR OPINION" ID="203" rows="8" column="14"></textarea>
+            <br><br>
+            <input type="submit" value="SEND" >
+        </form>
+    </div>
+</body>
+
+</html>
