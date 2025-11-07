@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue - ABES Engineering College</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+   <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #fff;
+}
+
+table {
+  width: 850px;
+  border-collapse: collapse;
+  margin: 0 auto;
+  border: 5px solid #b87a3a;
+  box-sizing: border-box;
+}
+
+thead tr:first-child td {
+  background-color: #f7cba3;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #b87a3a;
+  padding: 10px;
+  text-align: center;
+  color: #4b2c06;
+}
+
+thead tr:last-child td {
+  background-color: #fae1c6;
+  border: 1px solid #b87a3a;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  color: #4b2c06;
+}
+
+tbody td {
+  border: 1px solid #b87a3a;
+  padding: 15px;
+  color: #4b2c06;
+  vertical-align: top;
+  text-align: center;
+}
+
+tbody a {
+  text-decoration: none;
+  color: #4b2c06;
+}
+
+.book-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px;
+  border: 1px solid #b87a3a;
+}
+
+.add-btn {
+  background-color: rgb(255, 140, 26);
+  border-radius: 25px;
+  color: rgb(40, 15, 98);
+  width: 200px;
+  font-size: 18px;
+  margin: 20px 0;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background-color: rgb(255, 180, 90);
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+   </style>
+</head>
+
+<body>
+  <div>
+    <table border="">
+      <thead>
+        <tr>
+          <td colspan="1">
+            <img src="https://media.licdn.com/dms/image/v2/C510BAQGHhq9X-H8LyQ/company-logo_200_200/company-logo_200_200/0/1631345366169?e=2147483647&v=beta&t=8hq7Hhr_Vlu6uIXpTU9yv31n6jB0_zBzvuFqHmHGwlg" height="40px" alt="ABES Logo">
+          </td>
+          <td colspan="4"><strong>ABES ENGINEERING COLLEGE</strong></td>
+        </tr>
+
+        <tr>
+          <td><a href="#">Home</a></td>
+          <td><a href="#">Login</a></td>
+          <td><a href="#">Registration</a></td>
+          <td><a href="#">Catalogue</a></td>
+          <td><a href="#">Cart</a></td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <!-- Left side: Department Links -->
+          <td>
+            <a href="CSE.html">CSE</a><br><br><br><br>
+            <a href="ECE.html">ECE</a><br><br><br><br>
+            <a href="EEE.html">EEE</a><br><br><br><br>
+            <a href="CIVIL.html">CIVIL</a>
+          </td>
+
+          <!-- Book Images -->
+          <td>
+            <img src="pybook.jpg" alt="Python Book" class="book-img"><br><br>
+            <img src="aibook.jpg" alt="AI Book" class="book-img"><br><br>
+            <img src="javabook.webp" alt="Java Book" class="book-img"><br><br>
+            <img src="htmlcssbook.webp" alt="HTML & CSS Book" class="book-img">
+          </td>
+
+          <!-- Book Details -->
+          <td>
+            <p><b>Book:</b> Python Programming</p>
+            <p><b>Author:</b> Reema Thareja</p>
+            <p><b>Publication:</b> Programmer Tree</p><br><br>
+
+            <p><b>Book:</b> Artificial Intelligence</p>
+            <p><b>Author:</b> Stuart Russell</p>
+            <p><b>Publication:</b> Programmer Tree</p><br><br>
+
+            <p><b>Book:</b> Java Programming</p>
+            <p><b>Author:</b> Herbert Schildt</p>
+            <p><b>Publication:</b> Programmer Tree</p><br><br>
+
+            <p><b>Book:</b> HTML and CSS</p>
+            <p><b>Author:</b> Elizabeth Castro</p>
+            <p><b>Publication:</b> Programmer Tree</p>
+          </td>
+
+          <!-- Book Prices -->
+          <td>
+            <p>$50</p><br><br><br><br><br><br>
+            <p>$60</p><br><br><br><br><br><br>
+            <p>$70</p><br><br><br><br><br><br>
+            <p>$50</p>
+          </td>
+
+          <!-- Add to Cart Buttons -->
+          <td>
+            <button type="button" class="add-btn">
+              <span class="material-symbols-outlined">shopping_cart</span> Add to cart
+            </button><br>
+            <button type="button" class="add-btn">
+              <span class="material-symbols-outlined">shopping_cart</span> Add to cart
+            </button><br>
+            <button type="button" class="add-btn">
+              <span class="material-symbols-outlined">shopping_cart</span> Add to cart
+            </button><br>
+            <button type="button" class="add-btn">
+              <span class="material-symbols-outlined">shopping_cart</span> Add to cart
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page - ABES Engineering College</title>
+  
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #fff;
+}
+
+table {
+  width: 850px;
+  border-collapse: collapse;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: 5px solid #b87a3a;
+}
+
+thead tr:first-child td {
+  background-color: #f7cba3;
+  font-weight: bold;
+  font-size: 18px;
+  border: 2px solid #b87a3a;
+  padding: 10px;
+  text-align: center;
+  color: #4b2c06;
+}
+
+thead tr:last-child td {
+  background-color: #fae1c6;
+  border: 1px solid #b87a3a;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  color: #4b2c06;
+}
+
+tbody td:first-child {
+  border: 1px solid #b87a3a;
+  padding: 8px 12px;
+  color: #4b2c06;
+  vertical-align: top;
+}
+
+tbody td:last-child {
+  border: 1px solid #b87a3a;
+  padding: 15px 20px;
+  font-size: 16px;
+  color: #4b2c06;
+  text-align: center;
+  vertical-align: middle;
+  height: 180px;
+}
+
+/* Links */
+tbody a {
+  text-decoration: none;
+  color: #4b2c06;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="password"] {
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #b87a3a;
+  border-radius: 4px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: #b87a3a;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  background-color: #8c5e2e;
+}
+
+  </style>
+</head>
+<body>
+  <div>
+    <table border="">
+      <thead>
+        <tr>
+          <td colspan="1">
+            <img src="https://media.licdn.com/dms/image/v2/C510BAQGHhq9X-H8LyQ/company-logo_200_200/company-logo_200_200/0/1631345366169?e=2147483647&v=beta&t=8hq7Hhr_Vlu6uIXpTU9yv31n6jB0_zBzvuFqHmHGwlg" height="40px" alt="ABES Logo">
+          </td>
+          <td colspan="4"><strong>ABES ENGINEERING COLLEGE</strong></td>
+        </tr>
+        <tr>
+          <td><a href="#">Home</a></td>
+          <td><a href="#">Login</a></td>
+          <td><a href="#">Registration</a></td>
+          <td><a href="#">Catalogue</a></td>
+          <td><a href="#">Cart</a></td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            <a href="CSE.html">CSE</a><br>
+            <a href="ECE.html">ECE</a><br>
+            <a href="EEE.html">EEE</a><br>
+            <a href="CIVIL.html">CIVIL</a><br>
+          </td>
+
+          <td colspan="4">
+            <p><b>Login Page</b></p>
+            <form>
+              Username: <input type="text" name="username" id="username"><br><br>
+              Password: <input type="password" name="password" id="password"><br><br>
+              <input type="submit" value="Submit">
+              <input type="reset" value="Reset">
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
