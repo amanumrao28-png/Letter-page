@@ -1,51 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <style>
-        /* Simple centered container for the hero image */
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-            background: #f8f9fb;
-        }
-
-        /* Animated image: gentle floating effect + hover lift */
-        .animated-img {
-            max-width: 900px;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-            animation: float 6s ease-in-out infinite;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: block;
-        }
-
-        .animated-img:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-18px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* Respect users who prefer reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            .animated-img { animation: none; transition: none; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABES Engineering College</title>
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="hero">
-        <img class="animated-img" src="https://static.vecteezy.com/system/resources/previews/007/117/069/non_2x/small-people-fill-out-the-form-modern-concept-for-web-banners-infographics-websites-printed-products-filling-out-resumes-hiring-employees-flat-modern-design-illustration-vector.jpg" alt="Illustration of people filling out forms">
-    </div>
+  <div>
+    <table border="">
+      <thead>
+        <tr>
+          <td colspan="1">
+            <img src="https://media.licdn.com/dms/image/v2/C510BAQGHhq9X-H8LyQ/company-logo_200_200/company-logo_200_200/0/1631345366169?e=2147483647&v=beta&t=8hq7Hhr_Vlu6uIXpTU9yv31n6jB0_zBzvuFqHmHGwlg" height="40px" alt="ABES Logo">
+          </td>
+          <td colspan="4"><strong>ABES ENGINEERING COLLEGE</strong></td>
+        </tr>
+        <tr>
+          <td><a href="#">Home</a></td>
+          <td><a href="#">Login</a></td>
+          <td><a href="#">Registration</a></td>
+          <td><a href="#">Catalogue</a></td>
+          <td><a href="#">Cart</a></td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>
+            <a href="CSE.html">CSE</a><br>
+            <a href="ECE.html">ECE</a><br>
+            <a href="EEE.html">EEE</a><br>
+            <a href="CIVIL.html">CIVIL</a><br>
+          </td>
+          <td colspan="4">Description of the Website</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
