@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children's Learning Hub</title>
+    <style>
+        /* Modern CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(255, 255, 255, 0.25) 25%, 
+                rgba(255, 255, 255, 0.2) 50%, 
+                rgba(255, 255, 255, 0.25) 75%, 
+                rgba(255, 255, 255, 0.3) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://img.freepik.com/free-vector/cartoon-park-scene-with-trees-bench_1308-52990.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+            z-index: -2;
+            animation: backgroundZoom 20s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.4);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes backgroundZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Header and Logo Styles */
+        .logo {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+            padding: 2rem 1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            animation: slideDown 0.8s ease-out;
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .logo span {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            display: block;
+            text-align: center;
+            animation: gradientText 3s ease infinite, bounce 2s ease-in-out infinite;
+            text-shadow: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        nav a:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        nav a:hover {
+            color: #667eea;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        nav a span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Boxes Container */
+        .content-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 2rem;
+        }
+
+        /* Individual Content Box */
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            animation: slideUp 0.8s ease-out backwards;
+            border: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .content-box:nth-child(1) { 
+            animation-delay: 0.1s;
+            border-color: #ff6b6b;
+        }
+        .content-box:nth-child(2) { 
+            animation-delay: 0.2s;
+            border-color: #4ecdc4;
+        }
+        .content-box:nth-child(3) { 
+            animation-delay: 0.3s;
+            border-color: #45b7d1;
+        }
+        .content-box:nth-child(4) { 
+            animation-delay: 0.4s;
+            border-color: #ffa726;
+        }
+
+        .content-box:hover {
+            transform: translateY(-15px) scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-width: 4px;
+        }
+
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .content-box:hover::before {
+            opacity: 1;
+        }
+
+        /* Box Image Container */
+        .box-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .content-box:hover .box-image img {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .box-image::after {
+            content: '📸';
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.3;
+            transition: all 0.3s;
+        }
+
+        .box-image:hover::after {
+            opacity: 0;
+        }
+
+        /* Box Content */
+        .box-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .box-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .box-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .content-box:hover .box-content h2::after {
+            width: 100px;
+        }
+
+        .box-content p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-top: 1rem;
+        }
+
+        .box-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .box-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        /* Main Content Styles */
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 3rem;
+            animation: bounce 1s ease-out;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientText 3s ease infinite, bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes gradientText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Form Styles */
+        form {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        label {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        input, select {
+            padding: 1rem;
+            border: 3px solid #e1e1e1;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: rgba(255, 255, 255, 0.9);
+            width: 100%;
+        }
+
+        input:focus, select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+            outline: none;
+            transform: scale(1.02);
+            background: white;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Image Styles */
+        .hero-image {
+            position: relative;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 1rem;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            transition: all 0.5s ease;
+            animation: float 6s ease-in-out infinite;
+            border: 5px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.3;
+            filter: blur(20px);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(100px); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1; 
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.7); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(74, 144, 226, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(74, 144, 226, 0); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Footer Styles */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-top: 4rem;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-section {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .footer-section:nth-child(1) { animation-delay: 0.1s; }
+        .footer-section:nth-child(2) { animation-delay: 0.2s; }
+        .footer-section:nth-child(3) { animation-delay: 0.3s; }
+        .footer-section:nth-child(4) { animation-delay: 0.4s; }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4a90e2, #66bb6a, #ffd93d);
+            animation: rainbow 4s linear infinite;
+        }
+
+        footer .container {
+            animation: fadeIn 1s ease-out;
+        }
+
+        footer h2 {
+            color: #4a90e2;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        footer h2::after {
+            content: '★';
+            position: absolute;
+            right: -20px;
+            color: #ffd93d;
+            animation: twinkle 1.5s infinite;
+        }
+
+        footer nav a {
+            display: block;
+            padding: 0.5rem 0;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer nav a:hover {
+            color: #4a90e2;
+            transform: translateX(5px);
+        }
+
+        footer .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        footer .social-links a:hover {
+            background: #4a90e2;
+            transform: translateY(-3px) rotate(8deg);
+        }
+
+        footer .social-links a:hover svg {
+            color: white;
+        }
+
+        footer .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer .copyright::before {
+            content: '♥';
+            color: #ff6b6b;
+            margin: 0 0.5rem;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-boxes {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .box-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-image img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            section {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            form {
+                padding: 1.5rem;
+            }
+
+            .logo span {
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .box-content {
+                padding: 1.5rem;
+            }
+
+            .box-image {
+                height: 200px;
+            }
+
+            button {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Smooth scrolling for entire page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span>Welcome to the Childhood!</span>
+        </div>
+        <div class="hero-image">
+            <a href="https://www.freepik.com/free-photos-vectors/cartoon-park" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.freepik.com/free-vector/cartoon-park-scene-with-trees-bench_1308-52990.jpg"
+                    alt="Cartoon park with trees and bench" width="400">
+            </a>
+        </div>
+    <br>
+    <div>
+        <nav>
+            <a href="index.html"><span>Home</span></a>
+            <a href="index.html"><span>About</span></a>
+            <a href="index.html"><span>Contact Us</span></a>
+            <a href="index.html"><span>History</span></a>
+            <a href="index.html"><span>Login</span></a>
+            <a href="index.html"><span>Logout</span></a>
+        </nav>
+    </div>
+    </header>
+    <br>
+
+        <div>
+            <section>
+                <nav>
+                    <h1>
+                        I AM HERE..
+                    </h1>
+                    
+                <br>
+            </section>
+
+            <!-- Content Boxes Section -->
+            <div class="content-boxes">
+                <!-- Reading Material Box -->
+                <div class="content-box" data-category="reading">
+                    <div class="box-image">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop" 
+                             alt="Reading Material" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect fill=\'%23667eea\' width=\'400\' height=\'300\'/%3E%3Ctext fill=\'%23fff\' font-family=\'Arial\' font-size=\'40\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E📚%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="box-content">
+                        <h2>📚 Reading Material</h2>
+                        <p>Explore amazing books, articles, and educational content designed to enhance your reading skills and knowledge!</p>
+                        <a href="children reading.html" class="box-link">Start Reading</a>
+                    </div>
+                </div>
+
+                <!-- Games Box -->
+                <div class="content-box" data-category="games">
+                    <div class="box-image">
+                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop" 
+                             alt="Games" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect fill=\'%234ecdc4\' width=\'400\' height=\'300\'/%3E%3Ctext fill=\'%23fff\' font-family=\'Arial\' font-size=\'40\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E🎮%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="box-content">
+                        <h2>🎮 Games</h2>
+                        <p>Play fun and educational games that make learning exciting! Challenge yourself with puzzles and interactive activities.</p>
+                        <a href="children games.html" class="box-link">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Stories Collection Box -->
+                <div class="content-box" data-category="stories">
+                    <div class="box-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop" 
+                             alt="Stories Collection" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect fill=\'%2345b7d1\' width=\'400\' height=\'300\'/%3E%3Ctext fill=\'%23fff\' font-family=\'Arial\' font-size=\'40\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E📖%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="box-content">
+                        <h2>📖 Stories Collection</h2>
+                        <p>Discover enchanting stories, fairy tales, and adventures that will spark your imagination and creativity!</p>
+                        <a href="children stories.html" class="box-link">Read Stories</a>
+                    </div>
+                </div>
+
+                <!-- Poems Box -->
+                <div class="content-box" data-category="poems">
+                    <div class="box-image">
+                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop" 
+                             alt="Poems" 
+                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect fill=\'%23ffa726\' width=\'400\' height=\'300\'/%3E%3Ctext fill=\'%23fff\' font-family=\'Arial\' font-size=\'40\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E✨%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="box-content">
+                        <h2>✨ Poems</h2>
+                        <p>Enjoy beautiful poems, rhymes, and songs that are fun to read and easy to remember. Perfect for learning!</p>
+                        <a href="children songs.html" class="box-link">Explore Poems</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Section -->
+            <section>
+                <h1>
+                    Test Your Knowledge
+                </h1>
+                <form action="#" method="post" id="knowledgeForm">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <label for="class">Class</label>
+                    <select id="class" name="class" required>
+                        <option value="">Select Class</option>
+                        <option value="P.G">P.G</option>
+                        <option value="L.K.G">L.K.G</option>
+                        <option value="U.K.G">U.K.G</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                    </select>
+
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select Subject</option>
+                        <option value="Math">Math</option>
+                        <option value="English">English</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="G.K">G.K</option>
+                    </select>
+                    <label for="total">How many questions?</label>
+                    <input type="number" id="total" placeholder="e.g. 5" min="1" required>
+
+                    <button type="submit"><span>Submit</span></button>
+                </form>
+            </section>
+
+        </div>
+
+    </body>
+    
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h2>Quick Links</h2>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="children reading.html">Reading Material</a>
+                    <a href="children games.html">Fun Games</a>
+                    <a href="children stories.html">Amazing Stories</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h2>Learn & Play</h2>
+                <nav>
+                    <a href="#">Math Games</a>
+                    <a href="#">English Activities</a>
+                    <a href="#">Science Fun</a>
+                    <a href="#">Art Corner</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h2>Parents Corner</h2>
+                <nav>
+                    <a href="#">Progress Tracker</a>
+                    <a href="#">Learning Tips</a>
+                    <a href="#">Support Center</a>
+                    <a href="#">Contact Us</a>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h2>Follow Us</h2>
+                <div class="social-links">
+                    <a href="#" class="social-icon">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2024 Children's Learning Hub. Made with love for kids everywhere!</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced form submission animation and validation
+        const form = document.getElementById('knowledgeForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Button animation
+                const button = this.querySelector('button');
+                button.style.animation = 'pulse 0.5s ease';
+                
+                // Create success message with animation
+                setTimeout(() => {
+                    const existingSuccess = this.querySelector('.success-message');
+                    if (existingSuccess) existingSuccess.remove();
+                    
+                    const success = document.createElement('div');
+                    success.className = 'success-message';
+                    success.style.cssText = `
+                        color: #4CAF50;
+                        text-align: center;
+                        margin-top: 1.5rem;
+                        padding: 1rem;
+                        background: rgba(76, 175, 80, 0.1);
+                        border-radius: 10px;
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        animation: slideUp 0.5s ease-out;
+                    `;
+                    success.innerHTML = '🎉 Form submitted successfully! 🎉';
+                    this.appendChild(success);
+                    
+                    // Add confetti effect
+                    createConfetti();
+                    
+                    // Reset form after 3 seconds
+                    setTimeout(() => {
+                        this.reset();
+                        success.style.animation = 'fadeIn 0.5s ease-out reverse';
+                        setTimeout(() => success.remove(), 500);
+                    }, 3000);
+                }, 300);
+            });
+        }
+
+        // Content boxes interactive effects
+        document.querySelectorAll('.content-box').forEach((box, index) => {
+            // Add click animation
+            box.addEventListener('click', function() {
+                this.style.animation = 'pulse 0.5s ease';
+            });
+            
+            // Add mouse enter/leave effects
+            box.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+            
+            // Stagger animation on load
+            setTimeout(() => {
+                box.style.opacity = '0';
+                box.style.transform = 'translateY(50px)';
+                box.style.transition = 'all 0.6s ease-out';
+                
+                setTimeout(() => {
+                    box.style.opacity = '1';
+                    box.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            }, 100);
+        });
+
+        // Image loading error handling with fallback
+        document.querySelectorAll('.box-image img').forEach(img => {
+            img.addEventListener('error', function() {
+                if (!this.hasAttribute('data-fallback-set')) {
+                    this.setAttribute('data-fallback-set', 'true');
+                    const category = this.closest('.content-box').dataset.category;
+                    const fallbackColors = {
+                        reading: '#667eea',
+                        games: '#4ecdc4',
+                        stories: '#45b7d1',
+                        poems: '#ffa726'
+                    };
+                    this.style.background = fallbackColors[category] || '#667eea';
+                    this.style.display = 'flex';
+                    this.style.alignItems = 'center';
+                    this.style.justifyContent = 'center';
+                }
+            });
+        });
+
+        // Add parallax effect to background
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const bodyBefore = document.querySelector('body::before');
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                document.body.style.backgroundPosition = `0% ${scrollTop * 0.5}px`;
+            } else {
+                // Scrolling up
+                document.body.style.backgroundPosition = `0% ${scrollTop * 0.5}px`;
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        // Confetti effect function
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#ffa726', '#667eea', '#764ba2'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.cssText = `
+                        position: fixed;
+                        width: 10px;
+                        height: 10px;
+                        background: ${colors[Math.floor(Math.random() * colors.length)]};
+                        left: ${Math.random() * 100}%;
+                        top: -10px;
+                        border-radius: 50%;
+                        pointer-events: none;
+                        z-index: 9999;
+                        animation: confettiFall ${2 + Math.random() * 3}s linear forwards;
+                    `;
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 50);
+            }
+        }
+
+        // Add confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confettiFall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add interactive hover effects to navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Initialize page load animations
+        window.addEventListener('load', function() {
+            // Logo animation
+            const logo = document.querySelector('.logo span');
+            if (logo) {
+                logo.style.animation = 'bounce 1s ease-out';
+            }
+            
+            // Fade in all sections
+            document.querySelectorAll('section').forEach((section, index) => {
+                section.style.opacity = '0';
+                setTimeout(() => {
+                    section.style.transition = 'opacity 0.8s ease-out';
+                    section.style.opacity = '1';
+                }, index * 200);
+            });
+            
+            // Animate hero image
+            const heroImage = document.querySelector('.hero-image img');
+            if (heroImage) {
+                heroImage.style.animation = 'float 6s ease-in-out infinite';
+            }
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('button, .box-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    left: ${x}px;
+                    top: ${y}px;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Add scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all content boxes
+        document.querySelectorAll('.content-box').forEach(box => {
+            observer.observe(box);
+        });
+    </script>
+</body>
+</html>
